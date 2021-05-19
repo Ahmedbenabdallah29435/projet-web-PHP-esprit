@@ -1,0 +1,52 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 20/03/2019 07:13
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticond41d.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff2") format("woff2"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+}
+
+.flaticon-search:before { content: "\f100"; }
+.flaticon-magnifying-glass:before { content: "\f101"; }
+.flaticon-mail:before { content: "\f102"; }
+.flaticon-phone-call:before { content: "\f103"; }
+.flaticon-clock:before { content: "\f104"; }
+.flaticon-dog:before { content: "\f105"; }
+.flaticon-dog-1:before { content: "\f106"; }
+.flaticon-cat:before { content: "\f107"; }
+.flaticon-bird:before { content: "\f108"; }
+.flaticon-rabbit:before { content: "\f109"; }
+.flaticon-fish:before { content: "\f10a"; }
+.flaticon-quote:before { content: "\f10b"; }
+.flaticon-staff:before { content: "\f10c"; }
+.flaticon-shield:before { content: "\f10d"; }
+.flaticon-support:before { content: "\f10e"; }
+.flaticon-veterinary:before { content: "\f10f"; }
+.flaticon-pet:before { content: "\f110"; }
+.flaticon-cat-1:before { content: "\f111"; }
+.flaticon-add:before { content: "\f112"; }
+.flaticon-add-1:before { content: "\f113"; }
+.flaticon-play-button:before { content: "\f114"; }
+.flaticon-substract:before { content: "\f115"; }
