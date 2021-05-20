@@ -1,21 +1,15 @@
 <?PHP
-include "controller/UtilisateurC.php";
-include "controller/PlanteC.php";
+	include "controller/evenementC.php";
+	require_once ("composant/composant.php");
 
-
-	$utilisateurC=new UtilisateurC();
-
-	$list=$utilisateurC->afficherpromoanimaux ();
-
-	$PlantesC=new PlantesC();
-
-	$listU=$PlantesC->afficherpromoplante();
+	$utilisateurC=new evenementC();
+	$listeUsers=$utilisateurC->afficherevenement();
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Poopet/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Apr 2021 11:15:14 GMT -->
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +21,17 @@ include "controller/PlanteC.php";
 <link href="css/style.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<style>
+table, th, td {
+  
+background-color: #E8CEBF;
+  color: #412B15;
+}
+th, td {
+  padding: 15px;
+}
 
+</style>
 </head>
 
 <!-- page wrapper -->
@@ -144,12 +148,12 @@ include "controller/PlanteC.php";
                                                 <li><a href="single-service-6.html">Coat Handler Pets</a></li>
                                             </ul>
                                         </li>
-										<li class="dropdown"><a href="#">Evenements</a>
+                                        <li class="dropdown"><a href="#">Evenements</a>
                                             <ul>
                                                 <li><a href="evenement.php">Evenements Disponibles</a></li>
                                                 <li><a href="lieu.php">Lieux des Evenements</a></li>
                                             </ul>
-                                        </li>  
+                                        </li>      
                                         <li class="dropdown"><a href="#">BLOG</a>
                                             <ul>
                                                 <li><a href="article.php">Articles</a></li>
@@ -217,7 +221,7 @@ include "controller/PlanteC.php";
                                     </ul>
                                 </li>
                                 <li><a href="gallery.html">Gallery</a></li>
-                                <li class="current dropdown"><a href="#">promo</a>
+                                <li class="current dropdown"><a href="#">News</a>
                                     <ul>
                                         <li><a href="blog.html">Our News</a></li>
                                         <li><a href="blog-single.html">Single News</a></li>
@@ -232,346 +236,121 @@ include "controller/PlanteC.php";
         </div><!-- sticky-header end -->
     </header>
     <!-- End Main Header -->
-
-
-
+    <section id="form"><!--form-->
 	
-	<section id="slider"><!--slider-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
-						</ol>
-						
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>Nos</span>Promotions</h1>
-									
-								
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/promo.png" class="girl img-responsive" alt="" />
-									<img src="images/home/plantes2.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="col-sm-6">
-									<h1>LISTES</h1>
-									
-									
-								</div>
-								
-					
-					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								
-                                <li><a href="#promoplante" data-toggle="tab">Promotions Plantes</a></li> 
-							     <br>
-								 <br>
-								<li><a href="#promoanimaux" data-toggle="tab">Promotions animaux</a></li>
-								
-								
-							</ul>
-						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade active in" id="tshirt" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/an1.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/an2.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/an3.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/an4.jpg" alt="" />
-												<h2>$56</h2>
-											
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-book-open"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
+    <div class="container"> 
+        <div class="row">
+            <div class="col">
+      
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form"><!--login form-->
+                    <h1>Evenement Disponibles</h1>
+                    <div >
+        <table class="table table-striped table-dark">
+           
+               
+            <?PHP
+            foreach($listeUsers as $user){
+                
+        ?>
+               
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b><h1>*Evenement</h1> </b> </td>
+                </div>
+                <div class="row">
+                <td></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>Nom</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user['nom']; ?></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>Nombre Participant</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user['nbrP']; ?></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>Date realisation</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user['date']; ?></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>Type</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user['type']; ?></td>
+                </div>
+                </div>
+            </tr>
 
-                            
-							<div class="tab-pane fade" id="promoanimaux" >
-								
-							   <?PHP
-							    
-				                  foreach($list as $user){
-									$prix = $user['prix'];
-									$prixr= $user['prix_promotions'];
-									$p= $prix *$prixr* 0.01;
-									$pe = $prix - $p;
-					             
-			                  ?>
-								
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-											<img src="images/<?= $user['image'] ?>">
-											<h2>Prix : <?PHP echo $pe ?>DT</h2> <div ><td>Solde : <?php echo $user['prix_promotions']; ?>%</td></div>
-												<p><?PHP echo $user['typee']; ?></p>
-												<a href="article.php" class="btn btn-default add-to-cart"><i class="fa fa-book-open"></i>consulter nos articles pour plus de détails</a>
-											</div>
-											
-										</div>
-									</div>
-							
-							
-								</div>
-								<?PHP
-			              	}
-							
-			                ?>
-							</div>		
-							<div class="tab-pane fade" id="blazers" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/an5.jpg" alt="" />
-												<h2>$56</h2>
-											
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/n3.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/n2.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/n1.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="sunglass" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/plantes2.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/plante1.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/plante3.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/plante4.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="kids" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/acc1.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/acc2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/acc3.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/acc4.jpg" alt="" />
-												<h2>$56</h2>
-												
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>consulter nos articles pour plus de détails</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane fade" id="promoplante" >
-                            <?PHP
-							 $i=0;
-				foreach($listU as $usr){
-					$prix = $usr['prix'];
-						$prixr= $usr['prix_promoplante'];
-						$p= $prix *$prixr* 0.01;
-						$pe = $prix - $p;
-			                   ?>
-                           
+            <tr>
+             
+                </div>
+            </tr>
+            
+                
+            
 
-							
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-                                            <img src="images/<?= $usr['image'] ?>">
-												<h2>Prix : <?PHP echo $pe ?>DT</h2> <div ><td>Solde : <?php echo $usr['prix_promoplante']; ?>%</td></div>
-												<p><?PHP echo $usr['nom']; ?></p>
-												<a href="article.php" class="btn btn-default add-to-cart"><i class="fa fa-book-open"></i>consulter nos articles pour plus de détails</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								
-								
-							
-							
-                            
-                            <?PHP
-			              	}
-							
-			                ?>
-</div>
+    
+         
+            
+                        
+        <?PHP
+            
+        }
+        ?>
 
+          
+        </table>
+        
+    </div>
+        </div>	</div>
+        <div class="col">
+            
+            <div class="col-sm-1">
+                <h2 class="or"></h2>
+            </div>
+             
+            <style>
+          .contenir {
+            text-align: center;
+                margin-top: 100px;
+           }
+       </style>
+            <div class="contenir">
+            <a href="article.php"><button class="btn btn1">consulter nos articles por plus de detaille</button></a>
+                
+            </div>
+            
+        </div>
+        </div>
+        </div>
+    </div>
+</section><!--/form-->
 
-
-	</section>
-<!-- main-footer -->
 <footer class="main-footer gray-bg">
         
         

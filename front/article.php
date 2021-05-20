@@ -161,7 +161,12 @@ th, td {
                                                 <li><a href="single-service-6.html">Coat Handler Pets</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="gallery.html">Gallery</a></li>
+                                        <li class="dropdown"><a href="#">Evenements</a>
+                                            <ul>
+                                                <li><a href="evenement.php">Evenements Disponibles</a></li>
+                                                <li><a href="lieu.php">Lieux des Evenements</a></li>
+                                            </ul>
+                                        </li>  
                                         <li class="current dropdown"><a href="#">BLOG</a>
                                             <ul>
                                                 <li><a href="article.php">Articles</a></li>

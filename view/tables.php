@@ -1,11 +1,15 @@
 <?PHP
-	include "../controller/PlanteC.php";
-	require_once ("composant/composant.php");
+	include "../Model/evenement.php";
+	include_once "../controller/evenementC.php";
+	include "../Model/lieu.php";
+	include_once "../controller/lieuC.php";
+   
+	 
+	$l=new lieuC();
+	$listelieu=$l->afficherlieu();
 
-	$PlantesC=new PlantesC();
-	$listeUsers=$PlantesC->displayPlantes();
-
-	$list=$PlantesC->afficherpromoplante();
+	$event=new evenementC();
+	$listeUsers=$event->afficherevenement();
 
 ?>
 
@@ -14,7 +18,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Pooled Admin Panel Category Flat Bootstrap Responsive Web Template | Buttons :: w3layouts</title>
+<title>Pooled Admin Panel Category Flat Bootstrap Responsive Web Template | Tabels :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Pooled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -24,25 +28,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css1/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
 <link href="css1/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<link rel="stylesheet" href="css1/morris.css" type="text/css"/>
 <!-- Graph CSS -->
 <link href="css1/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
-<script src="js11/jquery-2.1.4.min.js11"></script>
+<script src="js1/jquery-2.1.4.min.js"></script>
 <!-- //jQuery -->
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="css1/table-style.css" />
+<link rel="stylesheet" type="text/css" href="css1/basictable.css" />
+<script type="text/javascript" src="js1/jquery.basictable.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+
+      $('#table-swap-axis').basictable({
+        swapAxis: true
+      });
+
+      $('#table-force-off').basictable({
+        forceResponsive: false
+      });
+
+      $('#table-no-resize').basictable({
+        noResize: true
+      });
+
+      $('#table-two-axis').basictable();
+
+      $('#table-max-height').basictable({
+        tableWrapper: true
+      });
+    });
+</script>
+<!-- //tables -->
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <!-- lined-icons -->
 <link rel="stylesheet" href="css1/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 </head> 
-
 <body>
    <div class="page-container">
    <!--/content-inner-->
 <div class="left-content">
 	   <div class="mother-grid-inner">
-              <!--header start here-->
+            <!--header start here-->
 				<div class="header-main">
 					<div class="logo-w3-agile">
 								<h1><a href="index.html">Pooled</a></h1>
@@ -70,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images1/in11.jpg" alt=""></div>
+											   <div class="user_img"><img src="images/in11.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -78,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											   <div class="clearfix"></div>	
 											</a></li>
 											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images1/in10.jpg" alt=""></div>
+												<div class="user_img"><img src="images/in10.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor </p>
 												<p><span>1 hour ago</span></p>
@@ -86,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											  <div class="clearfix"></div>	
 											</a></li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images1/in9.jpg" alt=""></div>
+											   <div class="user_img"><img src="images/in9.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -109,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-												<div class="user_img"><img src="images1/in8.jpg" alt=""></div>
+												<div class="user_img"><img src="images/in8.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -117,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											  <div class="clearfix"></div>	
 											 </a></li>
 											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images1/in6.jpg" alt=""></div>
+												<div class="user_img"><img src="images/in6.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -125,7 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											   <div class="clearfix"></div>	
 											 </a></li>
 											 <li><a href="#">
-												<div class="user_img"><img src="images1/in7.jpg" alt=""></div>
+												<div class="user_img"><img src="images/in7.jpg" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -203,9 +238,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images1/in4.jpg" alt=""> </span> 
+												<span class="prfil-img"><img src="images/in4.jpg" alt=""> </span> 
 												<div class="user-name">
-													<p>Ahmed</p>
+													<p>Malorum</p>
 													<span>Administrator</span>
 												</div>
 												<i class="fa fa-angle-down"></i>
@@ -225,216 +260,143 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				     <div class="clearfix"> </div>	
 				</div>
 <!--heder end here-->
-	<ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>UI Components <i class="fa fa-angle-right"></i>Button</li>
+<ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Tabels</li>
             </ol>
-<div class="agile3-grids">	
-				<!-- buttons -->
+<div class="agile-grids">	
+				<!-- tables -->
 				
-				<!-- Color-variations -->
-				<div class="panel1 variations-panel">
-					<div class="panel-body mtn">
-						<div class="col-adjust-10">
-		<ul class="nav menu">
-		<li ><a href="ajouterarticle.php"><em class="fa fa-plus-square">&nbsp;</em>Ajouter Article</a></li>
-			<li><a href="article.php"><em class="fa fa-files-o">&nbsp;</em> Afficher Article</a></li>
-			<li><a href="promoanimaux.php"><em class="fa fa-paw">&nbsp;</em> Promotions animaux</a></li>
-            <li><a href="promoplantes.php"><em  class="fa fa-envira" aria-hidden="true">&nbsp;</em> Promotions Plantes</a></li>
-	
-		
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+					  <h2>table evenement</h2>
+					  <table id="evenement">
+					  
+					  <div style="position: absolute; width: 949px; height: 518px; z-index: 1; left: 10px; top: 15px" id="layer1">
+						<table border="3" width="100%">
+						<thead>	
+                        <tr>
+								<th> <?php echo 'id' ?></th>
+								<th> <?php echo 'nom' ?></th>
+								<th> <?php echo 'nombre participant' ?></th>
+								<th> <?php echo 'date realisation' ?></th>
+								<th> <?php echo 'type' ?></th>
+								<th> <a href = "ajouterevenement.php"> ajouter </a></td>
+								<th>  <a href="trierevenement.php">trier </a></th>
+								<th>    </th>
+					
+							</tr>
+                        </thread>
+                        <tbody>
+						   <?php foreach($listeUsers as $event){
+							?>
+							<tr>
+					
+								<td><?php echo $event['id'] ;?></td>
+								<td><?php echo $event['nom'] ;?></td>
+								<td><?php echo $event['nbrP'] ;?></td>
+								<td><?php echo $event ['date'] ; ?></td>
+								<td><?php echo $event['type'] ;?></td>
+								
+								<td> 
+								<a class="btn btn-primary" href="modifierevenement.php?id=<?PHP echo $event['id']; ?>">Modifier </a>
+								</td>
+								<td><a class="btn btn-primary" href="indexmail.php?nom=<?PHP echo $event['nom']; ?>">email</a> </td>
+								
+								
+								<td>
+								<form method="POST" action="supprimerevenement.php">
+								<button type="submit" style="background-color:transparent; border-color:transparent;"> 
+									<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
+                         			</button>	
+									<input type="hidden" value=<?PHP echo $event['id']; ?> name="id">
+								</form>
+								</td>
+								
+							</tr>
+
+							
+							<?php                                 } ?>
+                           </tbody>
+						  
+						</table>
+					</div>
+					</div>
+				  <code class="js">
+				
+				  </code>
+		          <div class="w3l-table-info">
+				  <h3>table lieu</h3>
+				  <table id="lieue">
+					<thead>
+					  <tr>
+						<th>LIEU</th>
+						<th>ADRESS</th>
+						<th>ID</th>
+						<th><a href = "ajouterlieu.php"> ajouter </a></th>
+						<th>     </th>
+						
+					  </tr>
+					</thead>
+					<tbody>
+					<?php foreach($listelieu as $l){
+							?>
+							<tr>
+					  <tr>
+						<td><?php echo $l['lieu'] ;?></td>
+						<td><?php echo $l['adress'] ;?></td>
+						<td><?php echo $l['id'] ;?></td>
+						<td> 
+								<a class="btn btn-primary" href="modifierlieu.php?id=<?PHP echo $l['id']; ?>">Modifier </a>
+								</td>
+								
+								
+								<td>
+								<form method="POST" action="supprimerlieu.php">
+								<button type="submit" style="background-color:transparent; border-color:transparent;"> 
+									<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
+                         			</button>	
+									<input type="hidden" value=<?PHP echo $l['id']; ?> name="id">
+								</form>
+								</td>
+						
+					  </tr>
+					  <?php                                 } ?>
+					</tbody>
+				  </table>
+					</div>
+
 			
-		</div><!--/.row-->
-		<div class="container">
-        <div class="row">
-            <div class="col-md-12"></div>
-        </div>
-    </div>
-    <div class="container"> 
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-6">
-                <div class="container text-center">
-             <div class="container">
-        <div class="row">
-            <div class="col-md-12"></div>
-        </div>
-        <div class="d-flex justify-content-center">
-        	<br> <div class="col-md-5"></div>
-            
-
-                
-            </form>
-
-        </div>
-  <br>
-         <!-- Bootstrap table  -->
-         <div >
-            <table class="table table-striped table-dark">
-               
-               <tr>
-               <h2>Liste Des Plantes </h2>
-               </tr>
-                    <tr >
-                        <td><b>ID plante </b> </td>
-                        <td><b>nom</b> </td>
-						<td><b>longeur</b> </td>
-                        <td><b>prix</b></td>
-                        <td><b>type</b></td>
-						<td><b>image</b></td>
-                        <td><b>Ajouter Promotions</b></td>
-						
-
-						
-                    </tr>
-                
-                
-				<?PHP
-				foreach($listeUsers as $user){
-			?>
-           
-				<tr>
-					<td><?PHP echo $user['id']; ?></td>
-                    <td><?PHP echo $user['nom']; ?></td>
-					<td><?PHP echo $user['longeur']; ?></td>
-					<td><?PHP echo $user['prix']; ?></td>
-					<td><?PHP echo $user['type']; ?></td>
-					<td><img src="images/<?= $user['image'] ?>" width = "50" height = "50"></td>
-
-
-					
-					<td>
-						<a href="ajouterpromoplantes.php?id=<?PHP echo $user['id']; ?>"> <img src="https://img.icons8.com/fluent/48/000000/add-property.png"/> </a>
-						
-					</td>
-					
-				</tr>
-			<?PHP
+			</div>
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
 				}
-			?>
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
 
-
-              
-            </table>
-            
-        </div>
-        <div >
-            <table class="table table-striped table-dark">
-               
-               <tr>
-               <h2>Liste Des Plantes avec Promotions</h2>
-               </tr>
-                    <tr >
-					   
-					   <td><b>ID Promotions </b> </td>
-                        <td><b>ID plantes </b> </td>
-						<td><b>nom</b> </td>
-            			<td><b>longeur</b></td>
-                    	<td><b>prix</b></td>
-						<td><b>type</b></td>
-						<td><b>image</b></td>
-						<td><b>Date Debut Promotions</b></td>
-						<td><b>Date Debut Promotions</b></td>
-						<td><b>Solde</b></td>
-                        <td><b>Prix apres Reduction</b></td>
-						<td><b>Modifier</b></td>
-						<td><b>Supprimer</b></td>
-                    </tr>
-                
-                
-				<?PHP
-				foreach($list as $usr){
-					$prix = $usr['prix'];
-					$prixr= $usr['prix_promoplante'];
-					$p= $prix *$prixr* 0.01;
-					$pe = $prix - $p;
-			?>
-           
-				<tr>
-                    <td><?PHP echo $usr['id_promo']; ?></td>
-					<td><?PHP echo $usr['id']; ?></td>
-					<td><?PHP echo $usr['nom']; ?></td>
-					<td><?PHP echo $usr['longeur']; ?></td>
-					<td><?PHP echo $usr['prix']; ?></td>
-					<td><?PHP echo $usr['type']; ?></td>
-					<td><img src="images/<?= $usr['image'] ?>" width = "50" height = "50"></td>
-					<td><?PHP echo $usr['dated']; ?></td>
-					<td><?PHP echo $usr['datef']; ?></td>
-					<td><?PHP echo $usr['prix_promoplante']; ?>%</td>
-					<td><?PHP echo $pe ?></td>
-
-					<td>
-						<a href="modifierpromoplante.php?id_promo=<?PHP echo $usr['id_promo']; ?>"> <img src="https://img.icons8.com/fluent/48/000000/edit-file.png"/> </a>
-						
-					</td>
-					<td>
-						<form method="POST" action="supprimerpromoplantes.php">
-						<button type="submit" style="background-color:transparent; border-color:transparent;"> 
-						<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
-                         </button>	
-						<input type="hidden" value=<?PHP echo $usr['id_promo']; ?> name="id_promo">
-						</form>
-					</td>	
-				</tr>
-			<?PHP
-				}
-			?>
-
-              
-            </table>
-            
-        </div>
-
-		<form method="POST" action="recherche.php">
-	<select  placeholder="sujet" name="choix" id="choix" >
-              <option>Select</option>
-			  <option>type</option>
-              <option>nom</option>
-              </select>
-    <input type="text"  name="Search" name="Search"  placeholder="Search" >
-	
-     <input type="submit" class="btn btn-outline-primary" onclick="return verif3();"></i>
-</form>	
-	
-
-
-    </div>
-            </div>
-        </div>
-    </div>
-	</div>	<!--/.main-->
-	
-	
-	
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
-		
-		</div>
+</div>
 <!--inner block end here-->
 <!--copy rights start here-->
-
+<div class="copyrights">
+	 <p>© 2016 Pooled . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 </div>	
 <!--COPY rights end here-->
 </div>
 </div>
   <!--//content-inner-->
-			<!--/sidebar-menu-->
+		<!--/sidebar-menu-->
 				<div class="sidebar-menu">
 					<header class="logo1">
 						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
@@ -456,7 +418,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										  </ul>
 										</li>
 										<li id="menu-academico" ><a href="errorpage.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Error Page</span><div class="clearfix"></div></a></li>
-									  <li id="menu-academico" ><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i><span> Gestion Articles et Promos</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+										<li id="menu-academico" ><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i><span> Gestion Articles et Promos</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										   <ul id="menu-academico-sub" >
 										   <li id="menu-academico-avaliacoes" ><a href="ajouterarticle.php">Ajouter Article</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="article.php">Afficher Article</a></li>
@@ -515,4 +477,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>
-
