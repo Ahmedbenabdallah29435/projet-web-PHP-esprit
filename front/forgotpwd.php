@@ -25,14 +25,14 @@ include '../controller/UtilisateurC.php';
 				$mail->SMTPSecure = "tls";
 				$mail->Port       = 587;
 				$mail->Host       = "smtp.gmail.com";
-        $mail->Username = 'nature.pet1@gmail.com';
-        $mail->Password = '191JMT2413';
+        $mail->Username = 'webmasters2050@gmail.com';
+        $mail->Password = 'SUIVI345';
 			
 
 				// Set the required parameters for email header and body
 				$mail->IsHTML(true);
 				$mail->AddAddress($_POST["email"], $_POST["email"]);
-				$mail->setFrom('nature.pet1@gmail.com', 'NaturePet');
+				$mail->setFrom('webmasters2050@gmail.com', 'Webmasters');
 				$mail->Subject = "Modification de ton mot de passe";
 				$content = "<b>Bonjour , Pour modifier ton mot de passe il faut cliquer sur ce <a href='http://localhost/momo/front/updatepwd.php?Id=$message'>Lien</a></b>";
 

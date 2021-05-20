@@ -20,16 +20,16 @@ include "../config.php";
 		$mail->SMTPSecure = "tls";
 		$mail->Port       = 587;
 		$mail->Host       = "smtp.gmail.com";
-		$mail->Username = 'nature.pet1@gmail.com';
-        $mail->Password = '191JMT2413';
+		$mail->Username = 'webmasters2050@gmail.com';
+        $mail->Password = 'SUIVI345';
 
 		$email=$_POST["email"];
 		$name=$_POST["name"];
 		// Set the required parameters for email header and body
 		$mail->IsHTML(true);
 		$mail->AddAddress($email, $name);
-		$mail->setFrom('nature.pet1@gmail.com', 'NaturePet');
-		$mail->Subject = "Validation de votre compte healNaturePet";
+		$mail->setFrom('webmasters2050@gmail.com', 'Webmasters');
+		$mail->Subject = "Validation de votre compte petpoo";
 		$content = "<b>Bonjour $name,  Votre compte a été validé avec succés.</b>";
 
 		//Send the email and catch required exceptions:

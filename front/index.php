@@ -129,25 +129,13 @@ session_start();
                                 </div>
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="current dropdown"><a href="#">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Home Page 01</a></li>
-                                                <li><a href="index-3.html">Home Page 02</a></li>
-                                                <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style 01</a></li>
-                                                    <li><a href="index-3.html">Header Style 02</a></li>
-                                                </ul>
-                                            </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
+                                        <li class="current "><a href="index.php">Home</a></li>
+                                            
+                                        <li ><a href="plante.php">Plantes</a>
+                                           
+                                          
                                         </li> 
-										<li class="dropdown"><a href="#">Reclamtion</a>
+										<li class="dropdown " ><a href="#">Reclamtion</a>
                                             <ul>
 											<li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
 											   <li><a href="afficherReclamation.php">Afficher Reclamation</a></li>
@@ -158,7 +146,7 @@ session_start();
                                         <li><a href="evenement.php">Evenements</a>
                                            
                                         </li>  
-                                        <li class="current dropdown"><a href="#">BLOG</a>
+                                        <li class=" dropdown"><a href="#">BLOG</a>
                                             <ul>
                                                 <li><a href="article.php">Articles</a></li>
                                                 <li><a href="promo.php">Promos</a></li>
