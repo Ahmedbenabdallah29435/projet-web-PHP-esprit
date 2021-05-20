@@ -219,15 +219,19 @@ th, td {
                                         <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
                                         <li><a href="single-service-6.html">Coat Handler Pets</a></li>
                                     </ul>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li class="current dropdown"><a href="#">News</a>
-                                    <ul>
-                                        <li><a href="blog.html">Our News</a></li>
-                                        <li><a href="blog-single.html">Single News</a></li>
-                                    </ul>
-                                </li>                              
-                                <li><a href="contact.html">Contact</a></li>
+                                    <li class="dropdown"><a href="#">Evenements</a>
+                                            <ul>
+                                                <li><a href="evenement.php">Evenements Disponibles</a></li>
+                                                <li><a href="lieu.php">Lieux des Evenements</a></li>
+                                            </ul>
+                                        </li>  
+                                        <li class="current dropdown"><a href="#">BLOG</a>
+                                            <ul>
+                                                <li><a href="article.php">Articles</a></li>
+                                                <li><a href="promo.php">Promos</a></li>
+                                            </ul>
+                                        </li>       
+                                <li><a href="animaux.php">Animaux</a></li>
                             </ul>
                         </div>
                     </nav>

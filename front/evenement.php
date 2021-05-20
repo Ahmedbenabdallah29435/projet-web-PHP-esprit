@@ -1,9 +1,14 @@
 <?PHP
 	include "controller/evenementC.php";
+    include "controller/lieuC.php";
 	require_once ("composant/composant.php");
+   
 
 	$utilisateurC=new evenementC();
 	$listeUsers=$utilisateurC->afficherevenement();
+
+    $utilisateurC1=new lieuC();
+	$listeUsers1=$utilisateurC1->afficherlieu();
 
 ?>
 <!DOCTYPE html>
@@ -148,11 +153,10 @@ th, td {
                                                 <li><a href="single-service-6.html">Coat Handler Pets</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">Evenements</a>
-                                            <ul>
-                                                <li><a href="evenement.php">Evenements Disponibles</a></li>
-                                                <li><a href="lieu.php">Lieux des Evenements</a></li>
-                                            </ul>
+                                        <li class=" current"><a href="evenement.php">Evenements</a>
+                                            
+                                               
+                                           
                                         </li>      
                                         <li class="dropdown"><a href="#">BLOG</a>
                                             <ul>
@@ -160,7 +164,7 @@ th, td {
                                                 <li><a href="promo.php">Promos</a></li>
                                             </ul>
                                         </li>                              
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="animaux.php">Animaux</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -219,15 +223,19 @@ th, td {
                                         <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
                                         <li><a href="single-service-6.html">Coat Handler Pets</a></li>
                                     </ul>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li class="current dropdown"><a href="#">News</a>
-                                    <ul>
-                                        <li><a href="blog.html">Our News</a></li>
-                                        <li><a href="blog-single.html">Single News</a></li>
-                                    </ul>
-                                </li>                              
-                                <li><a href="contact.html">Contact</a></li>
+                                    <li class="dropdown"><a href="#">Evenements</a>
+                                            <ul>
+                                                <li><a href="evenement.php">Evenements Disponibles</a></li>
+                                                <li><a href="lieu.php">Lieux des Evenements</a></li>
+                                            </ul>
+                                        </li>  
+                                        <li class="current dropdown"><a href="#">BLOG</a>
+                                            <ul>
+                                                <li><a href="article.php">Articles</a></li>
+                                                <li><a href="promo.php">Promos</a></li>
+                                            </ul>
+                                        </li>       
+                                <li><a href="animaux.php">Animaux</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -235,6 +243,7 @@ th, td {
             </div>
         </div><!-- sticky-header end -->
     </header>
+                  
     <!-- End Main Header -->
     <section id="form"><!--form-->
 	
@@ -247,11 +256,17 @@ th, td {
                 <div class="login-form"><!--login form-->
                     <h1>Evenement Disponibles</h1>
                     <div >
+                    <table>
+                    <td>
         <table class="table table-striped table-dark">
            
                
             <?PHP
+           
             foreach($listeUsers as $user){
+                
+                 
+                
                 
         ?>
                
@@ -262,6 +277,16 @@ th, td {
                 </div>
                 <div class="row">
                 <td></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>id</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user['id']; ?></td>
                 </div>
                 </div>
             </tr>
@@ -305,11 +330,9 @@ th, td {
                 </div>
                 </div>
             </tr>
+            
 
-            <tr>
-             
-                </div>
-            </tr>
+           
             
                 
             
@@ -319,13 +342,71 @@ th, td {
             
                         
         <?PHP
-            
+                   
         }
         ?>
 
           
         </table>
+        </td>
+<td>
+        <table class="table table-striped table-dark" >
+        <?PHP
+            foreach($listeUsers1 as $user1 ){
+            ?>
+                <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b><h1>*Lieu </h1> </b> </td>
+                </div>
+                <div class="row">
+                <td></td>
+                </div>
+                </div>
+            </tr>
+           
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>lieu</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user1['lieu']; ?></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>Adresse</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user1['adress']; ?></td>
+                </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                <div class="coll">
+                <td><b>id</b> </td>
+                </div>
+                <div class="row">
+                <td><?PHP echo $user1['id']; ?></td>
+                </div>
+                </div>
+            </tr>
+
+            <?php  } ?>
+                 
+                
+                
         
+           
+        </table>
+        </td>
+        </table>
+       
+
     </div>
         </div>	</div>
         <div class="col">

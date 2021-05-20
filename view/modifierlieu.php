@@ -71,9 +71,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css1/morris.css" type="text/css"/>
 <!-- Graph CSS -->
 <link href="css1/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="css1/jquery-ui.css"> 
+<link rel="stylesheet" href="css/jquery-ui.css"> 
 <!-- jQuery -->
-<script src="js1/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
 <!-- //jQuery -->
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
