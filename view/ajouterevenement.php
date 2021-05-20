@@ -114,9 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="back">
 						<a href="tables.php">Back to home</a>
 				</div>
-				<div class="footer">
-					<p>&copy; 2016 Pooled . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-				</div>
+				
 	</div>
 	</div>
 	</div>

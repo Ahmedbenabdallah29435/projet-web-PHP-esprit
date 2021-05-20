@@ -41,13 +41,13 @@ class lieuC {
         }   
     }
 
-    function supprimerlieu($id)
+    function supprimerlieu($lieu)
     {
-        $sql="DELETE FROM lieu WHERE id = :id";
+        $sql="DELETE FROM lieu WHERE lieu = :lieu";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
         
-        $req->bindValue(':id',$_POST["id"]);
+        $req->bindValue(':lieu',$_POST["lieu"]);
         try{
             $req->execute();
            // header('Location: index.php');

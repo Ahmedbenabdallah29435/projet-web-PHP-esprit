@@ -1,9 +1,9 @@
 <?PHP
-include "controller/UtilisateurC.php";
+include "controller/AnimauxC.php";
 include "controller/PlanteC.php";
 
 
-	$utilisateurC=new UtilisateurC();
+	$utilisateurC=new AnimauxC();
 
 	$list=$utilisateurC->afficherpromoanimaux ();
 
@@ -133,15 +133,12 @@ include "controller/PlanteC.php";
                                                 <li><a href="error.html">Error Page</a></li>
                                             </ul>
                                         </li> 
-                                        <li class="dropdown"><a href="#">Services</a>
+                                        <li class="dropdown"><a href="#">Reclamtion</a>
                                             <ul>
-                                                <li><a href="service.html">Our Services</a></li>
-                                                <li><a href="single-service-1.html">Pets Full Grooming</a></li>
-                                                <li><a href="single-service-2.html">Health Checkups</a></li>
-                                                <li><a href="single-service-3.html">Styling Your Pets</a></li>
-                                                <li><a href="single-service-4.html">Bath, Dry & Brush</a></li>
-                                                <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
-                                                <li><a href="single-service-6.html">Coat Handler Pets</a></li>
+											<li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
+											   <li><a href="afficherReclamation.php">Afficher Reclamation</a></li>
+                                               
+                                                
                                             </ul>
                                         </li>
 										<li><a href="evenement.php">Evenements</a>
@@ -153,7 +150,7 @@ include "controller/PlanteC.php";
                                                 <li><a href="promo.php">Promos</a></li>
                                             </ul>
                                         </li>                              
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="Animaux.php">Animaux</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -257,6 +254,7 @@ include "controller/PlanteC.php";
 									
 								
 								</div>
+							
 								<div class="col-sm-6">
 									<img src="images/home/promo.png" class="girl img-responsive" alt="" />
 									<img src="images/home/plantes2.png"  class="pricing" alt="" />

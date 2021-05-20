@@ -502,15 +502,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<li id="menu-academico-avaliacoes" ><a href="article.php">Afficher Article</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="promoanimaux.php">Promotions animaux</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="promoplantes.php">Promotions Plantes</a></li>
-										  </ul>
+											</ul>
 										</li>
 									 <li><a href="tables.php"><i class="fa fa-table"></i>  <span>Gestion Evenment et Lieu</span><div class="clearfix"></div></a></li>
-									<li><a href="tabels.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Gestion Animaux-Accessoire</span><div class="clearfix"></div></a></li>
-							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <li><a href="tabels.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Gestion Animaux-Accessoire</span><div class="clearfix"></div></a></li>
+							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Gestion Comptes-reclams</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										 <ul id="menu-academico-sub" >
-											<li id="menu-academico-boletim" ><a href="calendar.html">Calendar</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signin.html">Sign In</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>
+											<li id="menu-academico-boletim" ><a href="comptes.php">Comptes</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="validation.php">Validation</a></li>
+											
 											
 
 										  </ul>

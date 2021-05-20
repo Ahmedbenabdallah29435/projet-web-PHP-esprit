@@ -1,7 +1,7 @@
 <?php
 
-	include "../controller/UtilisateurC.php";
-	include_once '../Model/Utilisateur.php';
+	include "../controller/AnimauxC.php";
+	include_once '../Model/Animaux.php';
 
 	$UtilisateurC = new UtilisateurC();
 	$error = "";

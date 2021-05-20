@@ -1,9 +1,23 @@
 
 	<?PHP
 	include_once "controller/articleC.php";
-	require_once ("composant/composant.php");
 	
+    session_start();
+    
+    require_once ("composant/composant.php");
+	
+    if (isset($_SESSION['id']) && ! empty($_SESSION['id']) && isset($_SESSION['prenom']) && ! empty($_SESSION['prenom']) &&  isset($_SESSION['nom']) && ! empty($_SESSION['nom']))
+	{
+		$id=$_SESSION['id'];
+		$user=$_SESSION['prenom'] .' '. $_SESSION['nom'];
+		$message="Se Deconnecter";
 
+
+	}
+	else{
+	$user="";
+	$message="Se Connecter";
+     }
 
 	$utilisateurC=new articleC();
 	$listeUsers=$utilisateurC->afficherarticle1();
@@ -75,7 +89,9 @@ th, td {
                             <i class="fa fa-clock"></i>
                             <span>Mon - Fri 9:00 am - 6:00 pm</span>
                         </li>
-                    </ul>
+                   
+                    
+                                </ul>   
                     <ul class="social-style-one">
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -103,11 +119,16 @@ th, td {
                             <strong><a href="tel:+886668880000">666 888 0000</a></strong>
                             Phone line
                         </li>
-                        <li>
-                            <i class="flaticon-clock"></i>
-                            <strong>Mon - Fri 9:00 am - 6:00 pm</strong>
-                            Working hours
-                        </li>
+                        <li><a href="profile.php"><i class="fa fa-user">      <?PHP echo $user; ?></i></a>
+								<br>
+								<br>
+								<br>
+								<br>
+								
+							
+								<a href="deconnexion.php"> <?PHP echo $message; ?> </a>
+								
+					    </li>
                     </ul>
                 </div>
             </div>
@@ -150,15 +171,12 @@ th, td {
                                                 <li><a href="error.html">Error Page</a></li>
                                             </ul>
                                         </li> 
-                                        <li class="dropdown"><a href="#">Services</a>
+                                        <li class="dropdown"><a href="#">Reclamtion</a>
                                             <ul>
-                                                <li><a href="service.html">Our Services</a></li>
-                                                <li><a href="single-service-1.html">Pets Full Grooming</a></li>
-                                                <li><a href="single-service-2.html">Health Checkups</a></li>
-                                                <li><a href="single-service-3.html">Styling Your Pets</a></li>
-                                                <li><a href="single-service-4.html">Bath, Dry & Brush</a></li>
-                                                <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
-                                                <li><a href="single-service-6.html">Coat Handler Pets</a></li>
+											<li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
+											   <li><a href="afficherReclamation.php">Afficher Reclamation</a></li>
+                                               
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="evenement.php">Evenements</a>
@@ -550,8 +568,8 @@ th, td {
 		        </style>
 				<div class="contenir">
 				<a href="email.php"><button class="btn btn1">Inviter un lecteur via Email</button></a>
-				
-	
+			
+                <div class="fb-share-button" data-href="http://localhost/momo/front/article.php" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fmomo%2Ffront%2Farticle.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
 				</div>
 				
 			</div>
@@ -663,7 +681,8 @@ th, td {
 <script src="js/jquery.fancybox.js"></script>
 <script src="js/bxslider.js"></script>
 <script src="js/appear.js"></script>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v10.0" nonce="UHn7HYNY"></script>
 <!-- main-js -->
 <script src="js/script.js"></script>
 

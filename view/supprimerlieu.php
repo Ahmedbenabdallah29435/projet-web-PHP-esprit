@@ -4,8 +4,8 @@
 
 	$lieuC=new lieuC();
 	
-	if (isset($_POST["id"])){
-		$lieuC->supprimerlieu($_POST["id"]);
+	if (isset($_POST["lieu"])){
+		$lieuC->supprimerlieu($_POST["lieu"]);
 		header('Location:tables.php');
 	}
 

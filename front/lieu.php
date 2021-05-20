@@ -137,15 +137,12 @@ th, td {
                                                 <li><a href="error.html">Error Page</a></li>
                                             </ul>
                                         </li> 
-                                        <li class="dropdown"><a href="#">Services</a>
+                                        <li class="dropdown"><a href="#">Reclamtion</a>
                                             <ul>
-                                                <li><a href="service.html">Our Services</a></li>
-                                                <li><a href="single-service-1.html">Pets Full Grooming</a></li>
-                                                <li><a href="single-service-2.html">Health Checkups</a></li>
-                                                <li><a href="single-service-3.html">Styling Your Pets</a></li>
-                                                <li><a href="single-service-4.html">Bath, Dry & Brush</a></li>
-                                                <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
-                                                <li><a href="single-service-6.html">Coat Handler Pets</a></li>
+											<li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
+											   <li><a href="afficherReclamation.php">Afficher Reclamation</a></li>
+                                               
+                                                
                                             </ul>
                                         </li>
                                         <li class="dropdown"><a href="#">Evenements</a>

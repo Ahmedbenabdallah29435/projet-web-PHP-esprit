@@ -230,7 +230,7 @@
                         <input type="email" name="email" class="btn" placeholder="[Your Email]" required>
                         <br>
                         <br>
-                        <textarea name="message" class="btn btn1"  rows="5" placeholder="vous êtes invité(e) ''par name'' pour adopter cet animal" readonly></textarea>
+                        <textarea name="message" class="btn btn1"  rows="5" placeholder="vous êtes invité(e) ''par name'' pour adopter cet animal" ></textarea>
 
 		
 							<button type="submit" name="submit" class="send-btn" value="Send">SEND</button>
