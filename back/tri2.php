@@ -337,8 +337,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<br></TD>
 <TD><select onchange="window.location=this.options[this.selectedIndex].value">
 <option value="">Trie selon date...</option>
-        <option value="http://localhost/momo/view/tri.php">Tri croissant Selon Date</option>
-        <option value="http://localhost/momo/view/tri2.php">Tri Decroissant Selon Date</option>
+        <option value="http://localhost/projet-web-WEBMASTERS-main/back/tri.php">Tri croissant Selon Date</option>
+        <option value="http://localhost/projet-web-WEBMASTERS-main/back/tri2.php">Tri Decroissant Selon Date</option>
         
     </select></TD>
 
