@@ -161,23 +161,10 @@ th, td {
                                 </div>
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="#">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Home Page 01</a></li>
-                                                <li><a href="index-3.html">Home Page 02</a></li>
-                                                <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style 01</a></li>
-                                                    <li><a href="index-3.html">Header Style 02</a></li>
-                                                </ul>
-                                            </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
+                                     
+                                <li ><a href="index.php">Home</a></li>
+                                            
+                                            <li ><a href="error.html">Plantes</a>
                                         </li> 
                                         <li class="dropdown"><a href="#">Reclamtion</a>
                                             <ul>
