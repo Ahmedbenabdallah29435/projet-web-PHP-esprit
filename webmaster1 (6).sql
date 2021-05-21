@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 21 mai 2021 à 16:43
+-- Généré le : ven. 21 mai 2021 à 19:35
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -135,7 +135,7 @@ CREATE TABLE `animaux` (
 --
 
 INSERT INTO `animaux` (`id_animaux`, `sex`, `typee`, `age`, `prix`, `categorie`, `couleur`, `image`) VALUES
-(2, 'male', 'un chat blanc hybride', 11, 3500, 'chien', 'noir et blanc', 'chat.png'),
+(2, 'male', 'un chat blanc hybride', 11, 3500, 'chat', 'noir et blanc', 'chat.png'),
 (3, 'male', 'labrador', 12, 500, 'chien', 'noir et feu', 'labrador.png');
 
 -- --------------------------------------------------------
@@ -285,7 +285,9 @@ CREATE TABLE `promoanimaux` (
 --
 
 INSERT INTO `promoanimaux` (`id_promoanimaux`, `id_animaux`, `sex`, `typee`, `age`, `prix`, `categorie`, `couleur`, `image`, `dated`, `datef`, `prix_promotions`) VALUES
-(31, 2, 'male', 'un chat blanc hybride', 3, 150, 'chat', 'blanc', 'chat.png', '2021-05-16', '2021-05-27', 100);
+(31, 2, 'male', 'un chat blanc hybride', 3, 150, 'chat', 'blanc', 'chat.png', '2021-05-16', '2021-05-27', 100),
+(33, 3, 'male', 'labrador', 12, 500, 'chien', 'noir et feu', 'labrador.png', '2021-05-07', '2021-05-30', 10),
+(34, 3, 'male', 'labrador', 12, 500, 'chien', 'noir et feu', 'labrador.png', '2021-05-08', '2021-05-30', 20);
 
 -- --------------------------------------------------------
 
@@ -311,7 +313,8 @@ CREATE TABLE `promoplante` (
 --
 
 INSERT INTO `promoplante` (`id_promo`, `id`, `nom`, `longeur`, `prix`, `type`, `image`, `dated`, `datef`, `prix_promoplante`) VALUES
-(8, 2, 'plante1', 50, 200, 'Plante', 'cactus.jpg', '2021-05-18', '2021-05-30', 20);
+(8, 2, 'plante1', 50, 200, 'Plante', 'cactus.jpg', '2021-05-18', '2021-05-30', 20),
+(10, 1, 'rose', 20, 7, 'Plante', 'rose.jpg', '2021-05-10', '2021-05-30', 7);
 
 -- --------------------------------------------------------
 
@@ -509,13 +512,13 @@ ALTER TABLE `plante`
 -- AUTO_INCREMENT pour la table `promoanimaux`
 --
 ALTER TABLE `promoanimaux`
-  MODIFY `id_promoanimaux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_promoanimaux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `promoplante`
 --
 ALTER TABLE `promoplante`
-  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `reclamation`
