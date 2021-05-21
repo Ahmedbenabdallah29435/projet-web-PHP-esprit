@@ -1,3 +1,20 @@
+<?PHP
+	include "../Model/evenement.php";
+	include_once "../controller/evenementC.php";
+	include "../Model/lieu.php";
+	include_once "../controller/lieuC.php";
+   
+	 
+	$l=new lieuC();
+	$listelieu=$l->afficherlieu();
+
+	$event=new evenementC();
+	$listeUsers=$event->afficherevenement();
+
+?>
+
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,12 +32,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Graph CSS -->
 <link href="css1/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
-<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js1/jquery-2.1.4.min.js"></script>
 <!-- //jQuery -->
 <!-- tables -->
-<link rel="stylesheet" type="text/css" href="css/table-style.css" />
-<link rel="stylesheet" type="text/css" href="css/basictable.css" />
-<script type="text/javascript" src="js/jquery.basictable.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css1/table-style.css" />
+<link rel="stylesheet" type="text/css" href="css1/basictable.css" />
+<script type="text/javascript" src="js1/jquery.basictable.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
       $('#table').basictable();
@@ -68,39 +85,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="w3layouts-left">
 							
 							<!--search-box-->
-			
-     <html>
-     <form method="POST" action=""> 
-     Rechercher un mot : <input type="text" name="recherche">
-     <input type="SUBMIT" value="Search!"> 
-     </form>
-     </html>					
-     <?php
-
-    $db_server = 'localhost'; // Adresse du serveur MySQL
-    $db_name = 'projet2a';            // Nom de la base de données
-    $db_user_login = 'root';  // Nom de l'utilisateur
-    $db_user_pass = '';       // Mot de passe de l'utilisateur
-
-    // Ouvre une connexion au serveur MySQL
-    $conn = mysqli_connect($db_server,$db_user_login, $db_user_pass, $db_name);
-
-
-     // Récupère la recherche
-     $recherche = isset($_POST['recherche']) ? $_POST['recherche'] : '';
-
-     // la requete mysql
-     $q = $conn->query(
-     "SELECT id, name FROM anim
-      WHERE id  LIKE '%$recherche%'
-      LIMIT 1");
-
-     // affichage du résultat
-     while( $r = mysqli_fetch_array($q)){
-     echo 'Résultat de la recherche: '.$r['id'].', '.$r['name'].' <br />'
-;
-     }
-?><!--//end-search-box-->
+								<div class="w3-search-box">
+									<form action="#" method="post">
+										<input type="text" placeholder="Search..." required="">	
+										<input type="submit" value="">					
+									</form>
+								</div><!--//end-search-box-->
 							<div class="clearfix"> </div>
 						 </div>
 						 <div class="w3layouts-right">
@@ -250,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="profile_img">	
 												<span class="prfil-img"><img src="images/in4.jpg" alt=""> </span> 
 												<div class="user-name">
-													<p>Malorum</p>
+													<p>Ahmed</p>
 													<span>Administrator</span>
 												</div>
 												<i class="fa fa-angle-down"></i>
@@ -261,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-											<li> <a href="\front\index.html"><i class="fa fa-sign-out"></i> Logout</a> </li>
+											<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
 								</ul>
@@ -270,247 +260,113 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				     <div class="clearfix"> </div>	
 				</div>
 <!--heder end here-->
-
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Tabels</li>
             </ol>
 <div class="agile-grids">	
+				<!-- tables -->
 				
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">Animaux Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Animal</a>
-                    </div>
-					<CENTER>
-					<select id='field_select' 
-   name='field' 
-   onchange="window.location='?field='+this.value+'&order='+document.getElementById('order_select').value;">
-      <option value='name' <?php if(!isset($_GET['field']) || $_GET['field']=='name'){echo "selected";} ?>>Sort by Name</option>
-      <option value='id' <?php if(isset($_GET['field']) && $_GET['field']=='id'){echo "selected";} ?>>Sort by ID</option>
-	  <option value='age' <?php if(isset($_GET['field']) && $_GET['field']=='age'){echo "selected";} ?>>Sort by Age</option>
-</select>
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+					  <h2>table evenement</h2>
+					  <table id="evenement">
+					  
+					  <div style="position: absolute; width: 949px; height: 518px; z-index: 1; left: 10px; top: 15px" id="layer1">
+						<table border="3" width="100%">
+						<thead>	
+                        <tr>
+								<th> <?php echo 'id' ?></th>
+								<th> <?php echo 'nom' ?></th>
+								<th> <?php echo 'nombre participant' ?></th>
+								<th> <?php echo 'date realisation' ?></th>
+								<th> <?php echo 'type' ?></th>
+								<th> <a href = "ajouterevenement.php"> ajouter </a></td>
+								<th>  <a href="trierevenement.php">trier </a></th>
+								<th>    </th>
+					
+							</tr>
+                        </thread>
+                        <tbody>
+						   <?php foreach($listeUsers as $event){
+							?>
+							<tr>
+					
+								<td><?php echo $event['id'] ;?></td>
+								<td><?php echo $event['nom'] ;?></td>
+								<td><?php echo $event['nbrP'] ;?></td>
+								<td><?php echo $event ['date'] ; ?></td>
+								<td><?php echo $event['type'] ;?></td>
+								
+								<td> 
+								<a class="btn btn-primary" href="modifierevenement.php?id=<?PHP echo $event['id']; ?>">Modifier </a>
+								</td>
+								<td><a class="btn btn-primary" href="indexmail.php?nom=<?PHP echo $event['nom']; ?>">email</a> </td>
+								
+								
+								<td>
+								<form method="POST" action="supprimerevenement.php">
+								<button type="submit" style="background-color:transparent; border-color:transparent;"> 
+									<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
+                         			</button>	
+									<input type="hidden" value=<?PHP echo $event['id']; ?> name="id">
+								</form>
+								</td>
+								
+							</tr>
 
-<select id='order_select' 
-   name='order' 
-   onchange="window.location='?field='+document.getElementById('field_select').value+'&order='+this.value;">
-      <option value='asc' <?php if(!isset($_GET['order']) || $_GET['order']=='asc'){echo "selected";} ?>>Ascending</option>
-      <option value='desc' <?php if(isset($_GET['order']) && $_GET['order']=='desc'){echo "selected";} ?>>Decending</option>
-</select>
-</CENTER>
-                    <?PHP
-					
-                    include "../controller/AnimalC.php";
-                    $animal1C=new AnimalC();
-                    $listeanimal=$animal1C->afficherAnimal();
-					
-					echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                       
-                                        echo "<th>id</th>";
-                                        echo "<th>name</th>";
-                                        echo "<th>age</th>";
-										echo "<th>couleur</th>";
-										echo "<th>image</th>";
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = $listeanimal->fetch()){  
-                                    echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['age'] . "</td>";
-                                        echo "<td>" . $row['couleur'] . "</td>";
-										 echo '<td><img src="'. htmlspecialchars($row['image']) .  '" alt="" width="150px" height="150px" /></td>';
-                                    
-                                        echo "<td>";
-                                            
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                    ?>
-                    <?PHP
-					
-					
-foreach($listeanimal as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['id']; ?></td>
-  <td><?PHP echo $row['name']; ?></td>
-  <td><?PHP echo $row['age']; ?></td>
-  <td><?PHP echo $row['couleur']; ?></td>
-  <td><?PHP echo $row['image']; ?></td>
-
-  
-  <td><form method="POST" action="supprimerproduit.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="idA">
-  </form>
-  </td>
-  <td><a href="update.php?idA=<?PHP echo $row['id']; ?>">
-  Modifier</a></td>
-  </tr>
-  <?PHP
-}
-?>
-<div class="agile-grids">	
+							
+							<?php                                 } ?>
+                           </tbody>
+						  
+						</table>
+					</div>
+					</div>
+				  <code class="js">
 				
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">Accessoires Details</h2>
-                        <a href="createa.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Accessory</a>
-                    </div>
-					
+				  </code>
+		          <div class="w3l-table-info">
+				  <h3>table lieu</h3>
+				  <table id="lieue">
+					<thead>
+					  <tr>
+						<th>LIEU</th>
+						<th>ADRESS</th>
+						<th>ID</th>
+						<th><a href = "ajouterlieu.php"> ajouter </a></th>
+						<th>     </th>
+						
+					  </tr>
+					</thead>
+					<tbody>
+					<?php foreach($listelieu as $l){
+							?>
+							<tr>
+					  <tr>
+						<td><?php echo $l['lieu'] ;?></td>
+						<td><?php echo $l['adress'] ;?></td>
+						<td><?php echo $l['id'] ;?></td>
+						<td> 
+								<a class="btn btn-primary" href="modifierlieu.php?id=<?PHP echo $l['id']; ?>">Modifier </a>
+								</td>
+								
+								
+								<td>
+								<form method="POST" action="supprimerlieu.php">
+								<button type="submit" style="background-color:transparent; border-color:transparent;"> 
+									<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
+                         			</button>	
+									<input type="hidden" value=<?PHP echo $l['lieu']; ?> name="lieu">
+								</form>
+								</td>
+						
+					  </tr>
+					  <?php                                 } ?>
+					</tbody>
+				  </table>
+					</div>
 
-
-                    <?PHP
-					
-                    include "../controller/produitC.php";
-                    $produit1C=new AccessC();
-                    $listeproduit=$produit1C->afficheracc();
-					
-					echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                       
-                                        echo "<th>id</th>";
-                                        echo "<th>name</th>";
-                                        echo "<th>prix</th>";
-										echo "<th>id caegorie</th>";
-										echo "<th>image</th>";
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = $listeproduit->fetch()){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['ida'] . "</td>";
-                                        echo "<td>" . $row['noma'] . "</td>";
-                                        echo "<td>" . $row['prixa'] . "</td>";
-										echo "<td>" . $row['idc'] . "</td>";
-                                        
-										 echo '<td><img src="'. htmlspecialchars($row['image']) .'" alt="" width="150px" height="150px" /></td>';
-                                    
-                                        echo "<td>";
-                                           
-                                            echo '<a href="updatea.php?id='. $row['ida'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="deletea.php?id='. $row['ida'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                    ?>
-                    <?PHP
-					
-					
-foreach($listeanimal as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['ida']; ?></td>
-  <td><?PHP echo $row['noma']; ?></td>
-  <td><?PHP echo $row['prixa']; ?></td>
-  <td><?PHP echo $row['idc']; ?></td>
-  <td><?PHP echo $row['image']; ?></td>
-
-  
-  <td><form method="POST" action="supprimerproduit.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['ida']; ?>" name="idA">
-  </form>
-  </td>
-  <td><a href="update.php?idA=<?PHP echo $row['ida']; ?>">
-  Modifier</a></td>
-  </tr>
-  <?PHP
-}
-?>
 			
-			<div class="agile-grids">	
-				
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">Category Details</h2>
-                        <a href="createc.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Category</a>
-                    </div>
-                    <?PHP
-                    include "../controller/categorieC.php";
-                    $categorie1c=new CategorieC();
-                    $listecat=$categorie1c->affichercat();
-					echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                       
-                                        echo "<th>id</th>";
-                                        echo "<th>nom</th>";
-                                        echo "<th>occurences</th>";
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = $listecat->fetch()){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['idc'] . "</td>";
-                                        echo "<td>" . $row['nomc'] . "</td>";
-                                        echo "<td>" . $row['occ'] . "</td>";
-                                        
-                                        echo "<td>";
-                                           
-                                            echo '<a href="updatec.php?id='. $row['idc'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="deletec.php?id='. $row['idc'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                    ?>
-                    <?PHP
-					
-					
-foreach($listecat as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['idc']; ?></td>
-  <td><?PHP echo $row['nomc']; ?></td>
-  <td><?PHP echo $row['occ']; ?></td>
- 
-
-  
-  <td><form method="POST" action="supprimerproduit.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['idc']; ?>" name="idA">
-  </form>
-  </td>
-  <td><a href="update.php?idA=<?PHP echo $row['idc']; ?>">
-  Modifier</a></td>
-  </tr>
-  <?PHP
-}
-?>
-
-                </div>
-            </div>        
-        </div>
-    </div>
-
 			</div>
-			
-			
-			
 <!-- script-for sticky-nav -->
 		<script>
 		$(document).ready(function() {
@@ -533,9 +389,7 @@ foreach($listecat as $row){
 </div>
 <!--inner block end here-->
 <!--copy rights start here-->
-<div class="copyrights">
-	 <p>© 2021 Pooled . All Rights Reserved | Design by  WebMasters  </p>
-</div>	
+
 <!--COPY rights end here-->
 </div>
 </div>
@@ -569,7 +423,6 @@ foreach($listecat as $row){
 											<li id="menu-academico-avaliacoes" ><a href="promoanimaux.php">Promotions animaux</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="promoplantes.php">Promotions Plantes</a></li>
 										  </ul>
-										
 										  </li>
 									 <li><a href="tables.php"><i class="fa fa-table"></i>  <span>Gestion Evenment et Lieu</span><div class="clearfix"></div></a></li>
 									 <li><a href="tabels.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Gestion Animaux-Accessoire</span><div class="clearfix"></div></a></li>
@@ -614,12 +467,11 @@ foreach($listecat as $row){
 										});
 							</script>
 <!--js -->
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
+<script src="js1/jquery.nicescroll.js"></script>
+<script src="js1/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
+   <script src="js1/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->	   
 
 </body>
 </html>
-

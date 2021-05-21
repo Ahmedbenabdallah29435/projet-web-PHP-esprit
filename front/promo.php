@@ -115,24 +115,13 @@ include "controller/PlanteC.php";
                                 </div>
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="#">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Home Page 01</a></li>
-                                                <li><a href="index-3.html">Home Page 02</a></li>
-                                                <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style 01</a></li>
-                                                    <li><a href="index-3.html">Header Style 02</a></li>
-                                                </ul>
-                                            </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
-                                        </li> 
+									<li class="current "><a href="index.php">Home</a></li>
+                                            
+											<li ><a href="error.html">Plantes</a>
+											   
+											  
+											</li> 
+										
                                         <li class="dropdown"><a href="#">Reclamtion</a>
                                             <ul>
 											<li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
@@ -165,7 +154,6 @@ include "controller/PlanteC.php";
             </div>
         </div>
 
-        <!--Sticky Header-->
         <div class="sticky-header">
             <div class="container clearfix">
                 <figure class="logo-box"><a href="index-2.html"><img src="images/small-logo.png" alt=""></a></figure>
@@ -181,56 +169,36 @@ include "controller/PlanteC.php";
                         </div>
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="dropdown"><a href="#">Home</a>
-                                    <ul>
-                                        <li><a href="index-2.html">Home Page 01</a></li>
-                                        <li><a href="index-3.html">Home Page 02</a></li>
-                                        <li class="dropdown"><a href="#">Header Styles</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Header Style 01</a></li>
-                                            <li><a href="index-3.html">Header Style 02</a></li>
-                                        </ul>
-                                    </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">About</a>
-                                    <ul>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="error.html">Error Page</a></li>
-                                    </ul>
-                                </li> 
-                                <li class="dropdown"><a href="#">Services</a>
-                                    <ul>
-                                        <li><a href="service.html">Our Services</a></li>
-                                        <li><a href="single-service-1.html">Pets Full Grooming</a></li>
-                                        <li><a href="single-service-2.html">Health Checkups</a></li>
-                                        <li><a href="single-service-3.html">Styling Your Pets</a></li>
-                                        <li><a href="single-service-4.html">Bath, Dry & Brush</a></li>
-                                        <li><a href="single-service-5.html">Cleaning & Plucking</a></li>
-                                        <li><a href="single-service-6.html">Coat Handler Pets</a></li>
+                               
+                                <li ><a href="index.php">Home</a></li>
+                                            
+                                <li ><a href="error.html">Plantes</a>
+                            </li> 
+                            <li class="dropdown"><a href="#">Reclamtion</a>
+                                <ul>
+                                <li><a href="ajouterReclamation.php">Ajouter Reclamtion</a></li>
+                                   <li><a href="afficherReclamation.php">Afficher Reclamation</a></li>
+                                   
                                     
-										</ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Evenements</a>
-                                            <ul>
-                                                <li><a href="evenement.php">Evenements Disponibles</a></li>
-                                                <li><a href="lieu.php">Lieux des Evenements</a></li>
-                                            </ul>
-                                        </li>  
-                                        <li class="current dropdown"><a href="#">BLOG</a>
-                                            <ul>
-                                                <li><a href="article.php">Articles</a></li>
-                                                <li><a href="promo.php">Promos</a></li>
-                                            </ul>
-                                        </li>                   
-                                <li><a href="animaux.php">Animaux</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="evenement.php">Evenements</a>
+                               
+                            </li>  
+                            <li class=" dropdown"><a href="#">BLOG</a>
+                                <ul>
+                                    <li><a href="article.php">Articles</a></li>
+                                    <li><a href="promo.php">Promos</a></li>
+                                </ul>
+                            </li>                              
+                            <li><a href="animaux.php">Animaux</a></li>
+                           
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </div><!-- sticky-header end -->
-    </header>
     <!-- End Main Header -->
 
 

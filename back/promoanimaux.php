@@ -1,63 +1,14 @@
-<?php
-
+<?PHP
 	include "../controller/AnimauxC.php";
-	include_once '../Model/Animaux.php';
+	require_once ("composant/composant.php");
 
-	$UtilisateurC = new UtilisateurC();
-	$error = "";
-	
-	if (
-		isset($_POST["id_animaux"]) && 
-		isset($_POST["sex"]) && 
-        isset($_POST["typee"]) &&
-        isset($_POST["age"]) &&
-        isset($_POST["prix"]) &&
-        isset($_POST["categorie"]) &&
-		isset($_POST["couleur"])  &&
-		isset($_POST["image"])  &&
-		isset($_POST["dated"])  &&
-		isset($_POST["datef"])  &&
+	$AnimauxC=new AnimauxC();
+	$listeUsers=$AnimauxC->afficherAnimauxs();
 
-        isset($_POST["prix_promotions"])  
-	){
-		if (
-			!empty($_POST["id_animaux"]) && 
-			!empty($_POST["sex"]) && 
-            !empty($_POST["typee"]) && 
-            !empty($_POST["age"]) && 
-            !empty($_POST["prix"]) &&
-            !empty($_POST["categorie"]) &&
-			!empty($_POST["couleur"]) &&
-			!empty($_POST["image"]) &&
-			!empty($_POST["dated"]) &&
-			!empty($_POST["datef"]) &&
-            !empty($_POST["prix_promotions"])
-
-        ) {
-            $user = new promoanimaux(
-				$_POST['id_animaux'],
-				$_POST['sex'],
-                $_POST['typee'],
-                $_POST['age'], 
-                $_POST['prix'],
-                $_POST['categorie'],
-				$_POST['couleur'],
-				$_POST['image'],
-				$_POST['dated'],
-				$_POST['datef'],
-                $_POST['prix_promotions']
-
-			);
-			
-            $UtilisateurC->ajouterpromoanimaux($user);
-			header('Location:promoanimaux.php');
-
-        }
-        else
-            $error = "Missing information";
-	}
+	$list=$AnimauxC->afficherpromoanimaux();
 
 ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -287,162 +238,176 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<ul class="nav menu">
 		<li ><a href="ajouterarticle.php"><em class="fa fa-plus-square">&nbsp;</em>Ajouter Article</a></li>
 			<li><a href="article.php"><em class="fa fa-files-o">&nbsp;</em> Afficher Article</a></li>
-			<li><a href="promoanimaux.php"><em class="fa fa-paw">&nbsp;</em> Promotions animaux</a></li>
+			<li><a href="promoanimaux.php"><em class="fa fa-paw">&nbsp;</em> Promotions animaux</a></li>	
 			<li><a href="promoplantes.php"><em  class="fa fa-envira" aria-hidden="true">&nbsp;</em> Promotions Plantes</a></li>
-	
+
 		
 			
 		</div><!--/.row-->
-		</div><!--/.row-->
-		<div>  
-		
-        <div id="error">
-            <?php echo $error; ?>
+		<div class="container">
+        <div class="row">
+            <div class="col-md-12"></div>
+        </div>
+    </div>
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="container text-center">
+             <div class="container">
+        <div class="row">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="d-flex justify-content-center">
+        	<br> <div class="col-md-5"></div>
+            
+
+                
+            </form>
+
+        </div>
+  <br>
+         <!-- Bootstrap table  -->
+         <div >
+            <table class="table table-striped table-dark">
+               
+               <tr>
+               <h2>Liste Des Animaux </h2>
+               </tr>
+                    <tr >
+                        <td><b>ID animaux </b> </td>
+						<td><b>Sex</b> </td>
+                        <td><b>type</b></td>
+                        <td><b>age</b></td>
+						<td><b>Prix</b></td>
+						<td><b>Categorie</b></td>
+                        <td><b>Couleur</b></td>
+						<td><b>image</b></td>
+                        <td><b>Ajouter Promotions</b></td>
+						
+
+						
+                    </tr>
+                
+                
+				<?PHP
+				foreach($listeUsers as $user){
+			?>
+           
+				<tr>
+					<td><?PHP echo $user['id_animaux']; ?></td>
+					<td><?PHP echo $user['sex']; ?></td>
+					<td><?PHP echo $user['typee']; ?></td>
+					<td><?PHP echo $user['age']; ?></td>
+					<td><?PHP echo $user['prix']; ?></td>
+					<td><?PHP echo $user['categorie']; ?></td>
+                 	<td><?PHP echo $user['couleur']; ?></td>
+					<td><img src="images/<?= $user['image'] ?>" width = "50" height = "50"></td>
+
+
+					
+					<td>
+						<a href="ajouterpromotions.php?id_animaux=<?PHP echo $user['id_animaux']; ?>"> <img src="https://img.icons8.com/fluent/48/000000/add-property.png"/> </a>
+						
+					</td>
+					
+				</tr>
+			<?PHP
+				}
+			?>
+
+
+              
+            </table>
+            
+        </div>
+        <div >
+            <table class="table table-striped table-dark">
+               
+               <tr>
+               <h2>Liste Des Animaux avec Promotions</h2>
+               </tr>
+                    <tr >
+					   
+					   <td><b>ID Promotions </b> </td>
+                        <td><b>ID animaux </b> </td>
+						<td><b>Sex</b> </td>
+            			<td><b>type</b></td>
+                    	<td><b>age</b></td>
+						<td><b>Prix</b></td>
+						<td><b>Categorie</b></td>
+                    	<td><b>Couleur</b></td>
+						<td><b>image</b></td>
+						<td><b>date debut promotions</b></td>
+						<td><b>date fin promotions</b></td>
+						<td><b>Solde</b></td>
+                       <td><b>Prix apres Reduction</b></td>
+						<td><b>Modifier</b></td>
+						<td><b>Supprimer</b></td>
+                    </tr>
+                
+                
+				<?PHP
+				foreach($list as $usr){
+					$prix = $usr['prix'];
+					$prixr= $usr['prix_promotions'];
+					$p= $prix *$prixr* 0.01;
+					$pe = $prix - $p;
+			?>
+           
+				<tr>
+                    <td><?PHP echo $usr['id_promoanimaux']; ?></td>
+					<td><?PHP echo $usr['id_animaux']; ?></td>
+					<td><?PHP echo $usr['sex']; ?></td>
+					<td><?PHP echo $usr['typee']; ?></td>
+					<td><?PHP echo $usr['age']; ?></td>
+					<td><?PHP echo $usr['prix']; ?></td>
+					<td><?PHP echo $usr['categorie']; ?></td>
+                    <td><?PHP echo $usr['couleur']; ?></td>
+					<td><img src="images/<?= $usr['image'] ?>" width = "50" height = "50"></td>
+					<td><?PHP echo $usr['dated']; ?></td>
+                    <td><?PHP echo $usr['datef']; ?></td>
+					<td><?PHP echo $usr['prix_promotions']; ?>%</td>
+					<td><?PHP echo $pe ?></td>
+
+					<td>
+						<a href="modifierpromoanimaux.php?id_promoanimaux=<?PHP echo $usr['id_promoanimaux']; ?>"> <img src="https://img.icons8.com/fluent/48/000000/edit-file.png"/> </a>
+						
+					</td>
+					<td>
+						<form method="POST" action="supprimerpromotions.php">
+						<button type="submit" style="background-color:transparent; border-color:transparent;"> 
+						<img src="https://img.icons8.com/color/48/000000/delete-forever.png"/>
+                         </button>	
+						<input type="hidden" value=<?PHP echo $usr['id_promoanimaux']; ?> name="id_promoanimaux">
+						</form>
+					</td>	
+				</tr>
+			<?PHP
+				}
+			?>
+
+              
+            </table>
+            
         </div>
 
-    	<?php
-			if (isset($_GET['id_animaux'])){
-				$user = $UtilisateurC->recupereretat($_GET['id_animaux']);
-				
-		?>
-		<form action="" method="POST">
-            <table border="1" align="center">
-
-                <tr>
-                    <td rowspan='11' colspan='1'> </td>
-                    <td>
-                        <label for="id_animaux">id_animaux:
-                        </label>
-                    </td>
-                    <td><input type="text" name="id_animaux" id="id_animaux" value = "<?php echo $user['id_animaux']; ?>" maxlength="20" readonly></td>
-                </tr>
-               
-                <tr>
-                    <td>
-                        <label for="sex">sex:
-                        </label>
-                    </td>
-                    <td><input type="text" name="sex" id="sex" value = "<?php echo $user['sex']; ?>" maxlength="20" readonly></td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <label for="typee">typee:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="typee" value = "<?php echo $user['typee']; ?>" id="typee" readonly>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>
-                        <label for="age">age:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="age" id="age" value = "<?php echo $user['age']; ?>" readonly>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>
-                        <label for="prix">prix:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="prix" id="prix" value = "<?php echo $user['prix']; ?>" readonly>
-						                   
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>
-                        <label for="categorie">Categorie:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="categorie" id="categorie" value = "<?php echo $user['categorie']; ?>" readonly	>
-                    </td>
-                    
-                </tr>
-                 
-                <tr>
-                    <td>
-                        <label for="couleur">couleur:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="couleur" id="couleur" value = "<?php echo $user['couleur']; ?>" readonly>
-                    </td>
-                    
-                </tr>
-				<tr>
-                    <td>
-                        <label for="image">image:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="image" id="image"  value = "<?php echo $user['image']; ?>" readonly>
-
-                    </td>
-                    
-                </tr>
-
-				<tr>
-                    <td>
-                        <label for="dated">Date debut promotion:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="date" name="dated" id="dated" required >
-
-                    </td>
-                    
-                </tr>
-				<tr>
-                    <td>
-                        <label for="datef">Date fin promotion:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="date" name="datef" id="datef" required >
-
-                    </td>
-                    
-                </tr>
-
-                <tr>
-                    <td>
-                        <label for="prix_promotions">Solde:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="number" name="prix_promotions" id="prix_promotions"   min="1" max="100" required>
-                    </td>
-                    
-                </tr>
-                
-               
-                
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" value="Envoyer" onclick="return verif();"> 
-                    </td>
-                    <td>
-                        <input type="reset" value="Annuler" >
-                    </td>
-                </tr>
-            </table>
-        </form>
-		<?php
-		}
-		?>
-
-		</div>
-	</div>	<!--/.main-->
+        <form method="POST" action="recherche2.php">
+	<select  placeholder="sujet" name="choix" id="choix" >
+              <option>Select</option>
+			  <option>categorie</option>
+              <option>sex</option>
+              </select>
+    <input type="text"  name="Search" name="Search"  placeholder="Search" >
 	
+     <input type="submit" class="btn btn-outline-primary" onclick="return verif3();"></i>
+      </form>	
+
+    </div>
+            </div>
+        </div>
+    </div>
+	</div>	<!--/.main-->
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -463,10 +428,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 };
 	</script>
-		
-
-
-</div>
+	</div>
 <!--inner block end here-->
 <!--copy rights start here-->
 
@@ -504,14 +466,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<li id="menu-academico-avaliacoes" ><a href="promoanimaux.php">Promotions animaux</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="promoplantes.php">Promotions Plantes</a></li>
 										  </ul>
-										</li>
+										  </li>
 									 <li><a href="tables.php"><i class="fa fa-table"></i>  <span>Gestion Evenment et Lieu</span><div class="clearfix"></div></a></li>
 									 <li><a href="tabels.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Gestion Animaux-Accessoire</span><div class="clearfix"></div></a></li>
-							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Gestion Comptes-reclams</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										 <ul id="menu-academico-sub" >
-											<li id="menu-academico-boletim" ><a href="calendar.html">Calendar</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signin.html">Sign In</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>
+											<li id="menu-academico-boletim" ><a href="comptes.php">Comptes</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="validation.php">Validation</a></li>
+											
 											
 
 										  </ul>
@@ -534,7 +496,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  if (toggle)
 							  {
 								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-								$("#menu span").css({"position":"absolute"});
+							$("#menu span").css({"position":"absolute"});
 							  }
 							  else
 							  {

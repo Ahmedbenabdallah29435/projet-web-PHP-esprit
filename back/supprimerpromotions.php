@@ -1,11 +1,11 @@
 <?PHP
-	include "../controller/UtilisateurC.php";
+	include "../controller/AnimauxC.php";
 	require_once ("composant/composant.php");
 
-	$UtilisateurC=new UtilisateurC();
+	$AnimauxC=new AnimauxC();
 	
 	if (isset($_POST["id_promoanimaux"])){
-		$UtilisateurC->supprimeranimau($_POST["id_promoanimaux"]);
+		$AnimauxC->supprimeranimau($_POST["id_promoanimaux"]);
 		header('Location:promoanimaux.php');
 	}
 

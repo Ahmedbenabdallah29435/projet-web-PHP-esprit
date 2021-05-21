@@ -1,9 +1,9 @@
 <?PHP
-	include_once "config.php";
-	require_once '../model/promoanimaux.php';
-	require_once '../model/Animaux.php';
+	include_once "../config.php";
+	require_once '../Model/Promoanimaux.php';
+	require_once '../Model/Animaux.php';
 
-	class UtilisateurC {
+	class AnimauxC {
 
 		function recupereretat($id_animaux)
     {
@@ -22,7 +22,7 @@
     }
 
 		
-		function ajouterUtilisateur($Utilisateur){
+		function ajouterAnimaux($Animaux){
 			$sql="INSERT INTO animaux (sex, typee, age, prix, categorie, couleur,image) 
 			VALUES (:sex,:typee,:age,:prix,:categorie,:couleur,:image)";
 			$db = config::getConnexion();
@@ -30,13 +30,13 @@
 				$query = $db->prepare($sql);
 			
 				$query->execute([
-					'sex' => $Utilisateur->getSex(),
-					'typee' => $Utilisateur->getTypee(),
-					'age' => $Utilisateur->getAge(),
-					'prix' => $Utilisateur->getPrix(),
-					'categorie' => $Utilisateur->getCategorie(),
-					'couleur' => $Utilisateur->getCouleur(),
-					'image' => $Utilisateur->getimage(),
+					'sex' => $Animaux->getSex(),
+					'typee' => $Animaux->getTypee(),
+					'age' => $Animaux->getAge(),
+					'prix' => $Animaux->getPrix(),
+					'categorie' => $Animaux->getCategorie(),
+					'couleur' => $Animaux->getCouleur(),
+					'image' => $Animaux->getimage(),
 					
 				]);			
 			}
@@ -45,7 +45,7 @@
 			}			
 		}
 		
-		function afficherUtilisateurs(){
+		function afficherAnimauxs(){
 			
 			$sql="SELECT * FROM animaux";
 			$db = config::getConnexion();
@@ -70,7 +70,7 @@
 			}
 		}
 
-		function modifierAnimaux($Utilisateur, $id_animaux){
+		function modifierAnimaux($Animaux, $id_animaux){
 			try {
 				$db = config::getConnexion();
 				$query = $db->prepare(
@@ -86,13 +86,13 @@
 					WHERE id_animaux = :id_animaux'
 				);
 				$query->execute([
-					'sex' => $Utilisateur->getSex(),
-					'typee' => $Utilisateur->getTypee(),
-					'age' => $Utilisateur->getAge(),
-					'prix' => $Utilisateur->getPrix(),
-					'categorie' => $Utilisateur->getCategorie(),
-					'couleur' => $Utilisateur->getCouleur(),
-					'image' => $Utilisateur->getimage(),
+					'sex' => $Animaux->getSex(),
+					'typee' => $Animaux->getTypee(),
+					'age' => $Animaux->getAge(),
+					'prix' => $Animaux->getPrix(),
+					'categorie' => $Animaux->getCategorie(),
+					'couleur' => $Animaux->getCouleur(),
+					'image' => $Animaux->getimage(),
 
 	
 					'id_animaux' => $id_animaux
