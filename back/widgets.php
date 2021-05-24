@@ -391,10 +391,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										  </ul>
 									 </li>
-									<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Forms</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Gestion commandes <br> et Livraisons</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 									  <ul>
-										<li><a href="input.html"> Input</a></li>
-										<li><a href="validation.html">Validation</a></li>
+										<li><a href="afficherCommande.php"> Afficher commandes</a></li>
+										<li><a href="TraiterCommande.php">Traiter commandes</a></li>
+										<li><a href="afficherLigne.php"> Afficher ligne</a></li>
+										<li><a href="afficherLivraison.php">Afficher livraison</a></li>
+										<li><a href="TraiterDemLivraison.php"> Traiter livraison</a></li>
+										
+										
 									</ul>
 									</li>
 								  </ul>

@@ -423,19 +423,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</li>
 									 <li><a href="tables.php"><i class="fa fa-table"></i>  <span>Gestion Evenment et Lieu</span><div class="clearfix"></div></a></li>
 									 <li><a href="tabels.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Gestion Animaux-Accessoire</span><div class="clearfix"></div></a></li>
-							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Gestion Comptes-reclams</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										 <ul id="menu-academico-sub" >
-											<li id="menu-academico-boletim" ><a href="calendar.html">Calendar</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signin.html">Sign In</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>
+											<li id="menu-academico-boletim" ><a href="comptes.php">Comptes</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="validation.php">Validation</a></li>
+											
 											
 
 										  </ul>
 									 </li>
-									<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Forms</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Gestion commandes <br> et Livraisons</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 									  <ul>
-										<li><a href="input.html"> Input</a></li>
-										<li><a href="validation.html">Validation</a></li>
+										<li><a href="afficherCommande.php"> Afficher commandes</a></li>
+										<li><a href="TraiterCommande.php">Traiter commandes</a></li>
+										<li><a href="afficherLigne.php"> Afficher ligne</a></li>
+										<li><a href="afficherLivraison.php">Afficher livraison</a></li>
+										<li><a href="TraiterDemLivraison.php"> Traiter livraison</a></li>
+										
+										
 									</ul>
 									</li>
 								  </ul>

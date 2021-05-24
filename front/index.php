@@ -7,18 +7,25 @@ session_start();
 
 
 	
-	if (isset($_SESSION['id']) && ! empty($_SESSION['id']) && isset($_SESSION['prenom']) && ! empty($_SESSION['prenom']) &&  isset($_SESSION['nom']) && ! empty($_SESSION['nom']))
-	{
-		$id=$_SESSION['id'];
-		$user=$_SESSION['prenom'] .' '. $_SESSION['nom'];
-		$message="Se Deconnecter";
+if (isset($_SESSION['id']) && ! empty($_SESSION['id']) && isset($_SESSION['prenom']) && ! empty($_SESSION['prenom']) &&  isset($_SESSION['nom']) && ! empty($_SESSION['nom']))
+{
+	$id=$_SESSION['id'];
+	$user=$_SESSION['prenom'] .' '. $_SESSION['nom'];
+	$message="Se Deconnecter";
+	$ajout="ajouterReclamation.php"; 
+	$affiche="afficherReclamation.php";		
+	$addtocart="AjouterCommande.php";
 
 
-	}
-	else{
-	$user="";
-	$message="Se Connecter";
-	 }
+}
+else{
+$user="";
+$message="Se Connecter";
+$ajout="login.php"; 
+$affiche="login.php"; 
+$addtocart="login.php";
+
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,7 +160,17 @@ session_start();
                                             </ul>
                                         </li>                              
                                         <li><a href="animaux.php">Animaux</a></li>
-                                       
+                                        <li class=" dropdown"><a href="#">SHOP</a>
+                                            <ul>
+                                                <li><a href="<?php echo $addtocart ?>">Ajouter commande</a></li>
+                                                
+                                                
+                                               
+                                    
+                                                
+                                                
+                                            </ul>
+                                        </li>                            
                                     </ul>
                                 </div>
                             </nav>
@@ -352,280 +369,135 @@ session_start();
     <!-- team-style-two end -->
 
 
-    <!-- chooseus-section -->
-    <section class="chooseus-section black-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-12 col-sm-12 title-column">
-                    <div class="inner-box">
-                        <div class="sec-title">
-                            <div class="top-title">Why People Choose Us</div>
-                            <h1>We’ve 25+ Years of Experiences to Handle your Pets Friends</h1>
-                        </div>
-                        <div class="link"><a href="#" class="theme-btn">Learn more</a></div>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                <div class="chooseus-block-one wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                    <div class="top-content">
-                                        <div class="icon-box"><i class="flaticon-staff"></i></div>
-                                        <h3><a href="#">Professional<br />Staff</a></h3>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit a consetetur simple is pscing elitr sed m nonmy eirmod simply free text.</div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                <div class="chooseus-block-one wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                    <div class="top-content">
-                                        <div class="icon-box"><i class="flaticon-shield"></i></div>
-                                        <h3><a href="#">Deliver Quality<br />Services</a></h3>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit a consetetur simple is pscing elitr sed m nonmy eirmod simply free text.</div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                <div class="chooseus-block-one wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <div class="top-content">
-                                        <div class="icon-box"><i class="flaticon-veterinary"></i></div>
-                                        <h3><a href="#">Best Medical<br />Treatment</a></h3>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit a consetetur simple is pscing elitr sed m nonmy eirmod simply free text.</div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                <div class="chooseus-block-one wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <div class="top-content">
-                                        <div class="icon-box"><i class="flaticon-support"></i></div>
-                                        <h3><a href="#">24/7 Smart<br />Support</a></h3>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit a consetetur simple is pscing elitr sed m nonmy eirmod simply free text.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- chooseus-section end -->
-
-
-    <!-- clients-section -->
-    <section class="clients-section">
-        <div class="container">
-            <div class="clients-outer">
-                <ul class="clients-carousel owl-carousel">
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/clients-1.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/clients-2.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/clients-3.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/clients-4.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/clients-5.png" alt=""></a></figure>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- clients-section end -->
-
-
-    <!-- healthcare-section -->
-    <section class="healthcare-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                    <div class="image-box wow slideInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <figure class="image"><img src="images/resource/healthcare-1.jpg" alt=""></figure>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="top-content">
-                            <div class="sec-title">
-                                <div class="top-title">Care for your Pets</div>
-                                <h1>Pets Healthcare Tips</h1>
-                            </div>
-                            <div class="text">
-                                <p>Lorem ipsum is simply free text available there are many variations of passages of orem ipsum avail but the majority have suffered alteration in some form.</p>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                    <div class="single-item wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                        <div class="icon-box"><i class="flaticon-cat-1"></i></div>
-                                        <h3><a href="#">Feeding a cat to be healthy</a></h3>
-                                        <div class="text">There are many variations of passages of orem ipsum avail but the majority have suffered alteration in some form.</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12 column">
-                                    <div class="single-item wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                        <div class="icon-box"><i class="flaticon-pet"></i></div>
-                                        <h3><a href="#">Dogs veterinary diest plans</a></h3>
-                                        <div class="text">There are many variations of passages of orem ipsum avail but the majority have suffered alteration in some form.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- healthcare-section end -->
-
-
-    <!-- pricing-section -->
-    <section class="pricing-section centred sec-pad gray-bg"> 
-        <div class="container">
-            <div class="sec-title alternate-color">
-                <div class="top-title">Our Rates</div>
-                <h1>Pricing Plans</h1>
-            </div>
-            <div class="inner-content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-column wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <div class="pricing-table">
-                            <div class="table-header">
-                                <div class="title">Small Package</div>
-                                <div class="price">$20.00<span>/visit</span></div>
-                            </div>
-                            <div class="table-content">
-                                <ul>
-                                    <li>Grooming</li>
-                                    <li>Cleaning</li>
-                                    <li>Plucking</li>
-                                    <li>Triming</li>
-                                    <li>Styling</li>
-                                    <li>Bath</li>
-                                </ul>
-                            </div>
-                            <div class="table-footer">
-                                <a href="#" class="theme-btn">Enquire now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-column wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="pricing-table">
-                            <div class="table-header">
-                                <div class="title">Medium Package</div>
-                                <div class="price">$30.00<span>/visit</span></div>
-                            </div>
-                            <div class="table-content">
-                                <ul>
-                                    <li>Grooming</li>
-                                    <li>Cleaning</li>
-                                    <li>Plucking</li>
-                                    <li>Triming</li>
-                                    <li>Styling</li>
-                                    <li>Bath</li>
-                                </ul>
-                            </div>
-                            <div class="table-footer">
-                                <a href="#" class="theme-btn">Enquire now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-column wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <div class="pricing-table">
-                            <div class="table-header">
-                                <div class="title">Large Package</div>
-                                <div class="price">$40.00<span>/visit</span></div>
-                            </div>
-                            <div class="table-content">
-                                <ul>
-                                    <li>Grooming</li>
-                                    <li>Cleaning</li>
-                                    <li>Plucking</li>
-                                    <li>Triming</li>
-                                    <li>Styling</li>
-                                    <li>Bath</li>
-                                </ul>
-                            </div>
-                            <div class="table-footer">
-                                <a href="#" class="theme-btn">Enquire now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- pricing-section end -->
-
-
-    <!-- gallery-section -->
-    <section class="gallery-section">
-        <div class="container-fluid">
-            <ul class="gallery-carousel owl-theme owl-carousel">
-                <li class="single-gallery-block">
-                    <figure class="image-box">
-                        <img src="images/gallery/gallery-1.png" alt="">
-                        <div class="icon-box"><a href="images/gallery/gallery-1.png" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-add"></i></a></div>
-                    </figure>
-                </li>
-                <li class="single-gallery-block">
-                    <figure class="image-box">
-                        <img src="images/gallery/gallery-2.png" alt="">
-                        <div class="icon-box"><a href="images/gallery/gallery-2.png" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-add"></i></a></div>
-                    </figure>
-                </li>
-                <li class="single-gallery-block">
-                    <figure class="image-box">
-                        <img src="images/gallery/gallery-3.png" alt="">
-                        <div class="icon-box"><a href="images/gallery/gallery-3.png" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-add"></i></a></div>
-                    </figure>
-                </li>
-                <li class="single-gallery-block">
-                    <figure class="image-box">
-                        <img src="images/gallery/gallery-4.png" alt="">
-                        <div class="icon-box"><a href="images/gallery/gallery-4.png" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-add"></i></a></div>
-                    </figure>
-                </li>
-                <li class="single-gallery-block">
-                    <figure class="image-box">
-                        <img src="images/gallery/gallery-5.png" alt="">
-                        <div class="icon-box"><a href="images/gallery/gallery-5.png" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-add"></i></a></div>
-                    </figure>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- gallery-section end -->
-
-
-    <!-- testimonial-section -->
-    <section class="testimonial-section centred" style="background-image: url(images/background/testimonial-bg.jpg);">
-        <div class="container">
-            <div class="inner-content">
-                <div class="testimonial-carousel owl-theme owl-carousel">
-                    <div class="testimonial-content">
-                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
-                        <span>- Mark Twain</span>
-                    </div>
-                    <div class="testimonial-content">
-                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
-                        <span>- Mark Twain</span>
-                    </div>
-                    <div class="testimonial-content">
-                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
-                        <span>- Mark Twain</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   <section>
+		<center><div class="container">
+			
+			
+			<div class="recommended_items"><!--recommended_items-->
+						
+						<h2 class="title text-center">Recommended Items</h2>
+						
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+													
+								<div class="item active">	
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/home/an5.jpg" alt="" />
+													<h2>500DT</h2>
+													<p>Bulldog</p>
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Chien Bulldog'>
+														<input type="hidden" name="Item_id" value='7'>
+														<input type="hidden" name="price" value="500">
+										</form>
+ 										</div>	
+												
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/home/n2.jpg" alt="" />
+													<h2>20DT</h2>
+													<p>Croquette</p>
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Croquette'>
+														<input type="hidden" name="Item_id" value='8'>
+														<input type="hidden" name="price" value="20">
+										</form>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/home/an7.jpg" alt="" />
+													<h2>250DT</h2>
+													<p>Chat</p>
+													
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Chat'>
+														<input type="hidden" name="Item_id" value='9'>
+														<input type="hidden" name="price" value="250">
+										</form>
+										</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item">	
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/home/acc3.jpg" alt="" />
+													<h2>560DT</h2>
+													<p>Niche Chat</p>
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Niche Chat'>
+														<input type="hidden" name="Item_id" value='10'>
+														<input type="hidden" name="price" value="560">
+										</form>
+										</div>
+												
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/home/acc2.jpg" alt="" />
+													<h2>40DT</h2>
+													<p>Laisse Chien</p>
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Laisse Chien'>
+														<input type="hidden" name="Item_id" value='11'>
+														<input type="hidden" name="price" value="400">
+										</form>
+											</div>
+												
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+									<form action="manage_cart.php" method="POST">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="images/Kes.png" alt="" />
+													<h2>15DT</h2>
+													<p>Tasse de Cafe</p>
+													<button type ="submit" name="addtocart" class="btn btn-default add-to-cart">Add to cart</button>
+														<input type="hidden" name="Item_Name" value='Tasse de Cafe'>
+														<input type="hidden" name="Item_id" value='12'>
+														<input type="hidden" name="price" value="15">
+										</form>
+										</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                            </center>
+                            </section>
+							
+							
     <!-- testimonial-section end -->
 
 

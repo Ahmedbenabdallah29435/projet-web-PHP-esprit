@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 21 mai 2021 à 19:35
+-- Généré le : lun. 24 mai 2021 à 22:28
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -161,7 +161,7 @@ CREATE TABLE `article` (
 
 INSERT INTO `article` (`id`, `type`, `description`, `nom`, `date`, `datef`, `categorie`, `image`) VALUES
 (105, 'ARTICLE DE RECHERCHE', 'Enter text here... 5', 'azfzda', '2021-05-08', '2021-05-21', 'lies aux animaux', 'album3.jpg'),
-(110, 'Article sur une Promotion', 'un chat blanc veut trouver une famille pour l\'adopter\r\nazeazzae  ze aze  zae za eza zea eazezaeza azezaez aze zea ze\r\n ae za aez aze\r\n eza zeaazeze a\r\n zae zezez eazea zea\r\nez zaee zaaz e', 'ENORME PROMTION 100', '2021-05-06', '2021-05-14', 'lies aux animaux', 'chat.png');
+(111, 'ARTICLE DE RECHERCHE', 'dfdffdfsdfdffdsfsdsfdddddddddd\r\ndfffffffffffffffffffffffffffffffffffffffffffffff\r\ndfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf\r\ndffffffffffffffffffffffffffffffffffffffff', 'ahmed', '2021-05-06', '2021-05-01', 'lies aux animaux', 'album6.jpg');
 
 -- --------------------------------------------------------
 
@@ -195,6 +195,32 @@ CREATE TABLE `cat` (
 INSERT INTO `cat` (`idc`, `nomc`, `occ`) VALUES
 (122, 'Nichegggggg', 0),
 (222, 'food', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commandes`
+--
+
+CREATE TABLE `commandes` (
+  `idCommande` int(11) NOT NULL,
+  `idClient` int(11) NOT NULL,
+  `paiment` varchar(30) NOT NULL,
+  `montant` int(11) NOT NULL,
+  `DemAnnulation` varchar(10) NOT NULL DEFAULT 'NON'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`idCommande`, `idClient`, `paiment`, `montant`, `DemAnnulation`) VALUES
+(169, 33, 'Cash', 1210, 'NON'),
+(175, 122, '-- Paiment --', 170, 'NON'),
+(176, 122, 'Cheque', 20, 'NON'),
+(177, 122, '-- Paiment --', 60, 'NON'),
+(178, 40, '-- Paiment --', 1520, 'NON'),
+(179, 122, '-- Paiment --', 2000, 'NON');
 
 -- --------------------------------------------------------
 
@@ -235,6 +261,59 @@ CREATE TABLE `lieu` (
 
 INSERT INTO `lieu` (`lieu`, `adress`, `id`) VALUES
 ('gfdgfd', 'fgdgf', 56);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lignecommandes`
+--
+
+CREATE TABLE `lignecommandes` (
+  `idLigne` int(11) NOT NULL,
+  `Produit` varchar(100) NOT NULL,
+  `idProduit` int(11) NOT NULL,
+  `idCommande` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `lignecommandes`
+--
+
+INSERT INTO `lignecommandes` (`idLigne`, `Produit`, `idProduit`, `idCommande`) VALUES
+(407, 'Croquette * 10 ', 2, 173),
+(408, 'Bol en bois * 3 ', 5, 173),
+(413, 'Chat * 1 ', 1, 175),
+(414, 'Croquette * 1 ', 2, 175),
+(415, 'Croquette * 1 ', 2, 176),
+(416, 'Croquette * 3 ', 2, 177),
+(418, 'Croquette * 1 ', 8, 178);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `livraisons`
+--
+
+CREATE TABLE `livraisons` (
+  `id_livraison` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `tel` int(11) NOT NULL,
+  `adresse` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `idCommande` int(11) NOT NULL,
+  `DemAnnulation` varchar(20) NOT NULL DEFAULT 'NON'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `livraisons`
+--
+
+INSERT INTO `livraisons` (`id_livraison`, `nom`, `tel`, `adresse`, `email`, `idCommande`, `DemAnnulation`) VALUES
+(17, 'Skander', 55203244, 'Bizerte', 'mohamedskander.zouao', 169, 'NON'),
+(18, 'Skander', 55203244, 'Bizerte', 'mohamedskander.zouao', 169, 'NON'),
+(19, 'Ahmed', 27684240, 'Bizerte', 'benabdallahahmed@esp', 2, 'NON'),
+(20, 'ahmedee', 21212112, 'Bizerte', 'benabdallah.ahmed@es', 3, 'NON'),
+(21, 'Ahmed', 27684240, 'Bizerte', 'benabdallahahmed@esp', 100, 'NON');
 
 -- --------------------------------------------------------
 
@@ -345,7 +424,8 @@ INSERT INTO `reclamation` (`id_reclamation`, `date_reclamation`, `objet_reclamat
 (27, '2021-05-14', 'reclamation liéé au accessoires', 'ssds', 0),
 (28, '2021-05-29', 'reclamation liéé au plante', 'vhgv', 0),
 (29, '2021-05-09', 'reclamation liéé au plante', 'szzss', 0),
-(30, '2021-05-21', 'reclamation liéé au animaux', 'erretertr', 122);
+(30, '2021-05-21', 'reclamation liéé au animaux', 'erretertr', 122),
+(31, '2021-05-03', 'reclamation liéé au plante', 'yjyuuj\r\n', 40);
 
 -- --------------------------------------------------------
 
@@ -424,6 +504,13 @@ ALTER TABLE `cat`
   ADD PRIMARY KEY (`idc`);
 
 --
+-- Index pour la table `commandes`
+--
+ALTER TABLE `commandes`
+  ADD PRIMARY KEY (`idCommande`),
+  ADD KEY `fk_idClient` (`idClient`);
+
+--
 -- Index pour la table `evenement`
 --
 ALTER TABLE `evenement`
@@ -435,6 +522,18 @@ ALTER TABLE `evenement`
 ALTER TABLE `lieu`
   ADD PRIMARY KEY (`lieu`),
   ADD KEY `id` (`id`);
+
+--
+-- Index pour la table `lignecommandes`
+--
+ALTER TABLE `lignecommandes`
+  ADD PRIMARY KEY (`idLigne`);
+
+--
+-- Index pour la table `livraisons`
+--
+ALTER TABLE `livraisons`
+  ADD PRIMARY KEY (`id_livraison`);
 
 --
 -- Index pour la table `plante`
@@ -488,7 +587,7 @@ ALTER TABLE `animaux`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT pour la table `books`
@@ -497,10 +596,28 @@ ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `commandes`
+--
+ALTER TABLE `commandes`
+  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+
+--
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT pour la table `lignecommandes`
+--
+ALTER TABLE `lignecommandes`
+  MODIFY `idLigne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=420;
+
+--
+-- AUTO_INCREMENT pour la table `livraisons`
+--
+ALTER TABLE `livraisons`
+  MODIFY `id_livraison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `plante`
@@ -524,7 +641,7 @@ ALTER TABLE `promoplante`
 -- AUTO_INCREMENT pour la table `reclamation`
 --
 ALTER TABLE `reclamation`
-  MODIFY `id_reclamation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_reclamation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
