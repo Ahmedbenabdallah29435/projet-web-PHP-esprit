@@ -315,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         
 				<a href="trierCommandeASC.php">TRIER ASC TOTAL </a></li>
                 <br>
-                <a href="pdfcommande1.php" download="pdfcommande1.php" class="btn btn-lg btn-outline">
+                <a href="pdfcommande.php" download="pdfcommande.php" class="btn btn-lg btn-outline">
                     <i class="fa fa-download"></i> Telecharger La liste 
                 </a>
                 <br> 	    
